@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  background-color: #2e2b2bcc;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+main {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.card {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+}
+
+.card > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  transition: all linear 150ms;
+}
+
+img:hover {
+  cursor: pointer;
+  transform: translate(0, -0.3rem) rotate(3deg) scale(1.1);
+}
+
+.card img:nth-child(2) {
+  transform: rotateY(180deg);
+}
+
+.card:active img:nth-child(1) {
+  transform: rotateY(-180deg);
+}
+
+.card:active img:nth-child(2) {
+  transform: rotateY(0deg);
+}
+
+.card > img.choosen-card {
+  backface-visibility: visible;
+  transform: rotateX(0deg);
+  cursor: auto;
+}
+
+.card > img.front-face {
+  display: none;
+}
+
+.found-card {
+  filter: blur(0.5px) grayscale(80%);
+}
+
+.win-card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  background-color: #365324;
+  color: black;
+}
